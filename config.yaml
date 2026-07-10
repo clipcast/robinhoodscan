@@ -1,0 +1,42 @@
+# RobinhoodScan Configuration
+# ============================
+# RobinhoodScan — Robinhood Chain Transaction Scanner
+# Powered by Blockscout API v2
+
+# Blockscout API endpoint
+api:
+  base_url: https://robinhoodchain.blockscout.com
+  # API key (if you have one — Blockscout is open, but rate limits apply)
+  api_key: "proapi_bSfD5L1WCvobulkqOHsRehjHZwEJ5QRbh2tEgIAl5WFOFwEnP0ZjjNftJURaTQbdg_l6cgL"
+  # Request timeout (seconds)
+  timeout: 15
+  # Rate limit delay between requests (seconds)
+  rate_limit_delay: 0.2
+  # Page size for paginated endpoints
+  page_size: 50
+
+# Scanner settings
+scanner:
+  # Track latest transactions
+  track_transactions: true
+  # Track latest blocks
+  track_blocks: true
+  # Track token transfers (ERC-20)
+  track_token_transfers: true
+  # Track top addresses by balance
+  track_addresses: true
+  # Filter: minimum tx value (in wei) to flag as "whale"
+  whale_threshold_wei: 1000000000000000000  # 1 ETH
+  # Filter: only show transactions from/to these addresses (empty = all)
+  watch_addresses: []
+  # Filter: only show these token symbols (empty = all)
+  watch_tokens: []
+  # Polling interval for live mode (seconds)
+  poll_interval: 10
+
+# Output settings
+output:
+  save_csv: true
+  csv_path: ./output
+  web: true
+  web_port: 5000

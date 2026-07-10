@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "public": true,
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/stats", "destination": "/index.html" },
+    { "source": "/txs", "destination": "/index.html" },
+    { "source": "/blocks", "destination": "/index.html" },
+    { "source": "/tokens", "destination": "/index.html" }
+  ],
+  "env": {
+    "BLOCKSCOUT_API_KEY": "proapi_bSfD5L1WCvobulkqOHsRehjHZwEJ5QRbh2tEgIAl5WFOFwEnP0ZjjNftJURaTQbdg_l6cgL",
+    "BLOCKSCOUT_BASE_URL": "https://robinhoodchain.blockscout.com"
+  }
+}
