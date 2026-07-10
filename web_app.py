@@ -37,24 +37,24 @@ PAGE = r"""
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: #f7f7f8;
-  --panel: #ffffff;
-  --border: #e5e5e5;
-  --border-light: #f0f0f0;
-  --text: #1a1a2e;
-  --text-secondary: #6b7280;
-  --muted: #9ca3af;
-  --link: #4a90d9;
-  --green: #00a186;
-  --green-bg: #e6f7f4;
-  --red: #e25b45;
-  --red-bg: #fce9e6;
-  --hero: #ccff00;
-  --hero-dark: #1a1a2e;
-  --purple: #6c5ce7;
-  --orange: #fdcb6e;
-  --blue-bg: #eef2ff;
-  --blue: #5560d0;
+  --bg: #0d0d0f;
+  --panel: #16171a;
+  --border: #2a2b2f;
+  --border-light: #202124;
+  --text: #f2f2f2;
+  --text-secondary: #9a9ba0;
+  --muted: #6b6c72;
+  --link: #D4FF00;
+  --green: #00e6a8;
+  --green-bg: rgba(0,230,168,0.12);
+  --red: #ff5c5c;
+  --red-bg: rgba(255,92,92,0.12);
+  --hero: #D4FF00;
+  --hero-dark: #0d0d0f;
+  --purple: #c9b8ff;
+  --orange: #ffcf6e;
+  --blue-bg: rgba(212,255,0,0.08);
+  --blue: #D4FF00;
 }
 * { margin:0; padding:0; box-sizing:border-box; }
 body { font-family:'Inter',system-ui,sans-serif; background:var(--bg); color:var(--text); font-size:14px; }
@@ -68,10 +68,11 @@ body { font-family:'Inter',system-ui,sans-serif; background:var(--bg); color:var
 .nav-links { display:flex; gap:16px; flex:1; margin-left:12px; }
 .nav-links a { color:var(--text-secondary); font-size:13px; font-weight:500; text-decoration:none; }
 .nav-links a:hover { color:var(--text); }
-.nav-links a.active { color:var(--text); font-weight:600; }
+.nav-links a.active { color:var(--hero); font-weight:600; }
 .nav-search { display:flex; align-items:center; }
-.nav-search input { width:300px; padding:8px 14px; border:1px solid var(--border); border-radius:8px; font-size:13px; outline:none; font-family:inherit; }
-.nav-search input:focus { border-color:var(--link); box-shadow:0 0 0 2px rgba(74,144,217,0.1); }
+.nav-search input { width:300px; padding:8px 14px; border:1px solid var(--border); border-radius:8px; font-size:13px; outline:none; font-family:inherit; background:var(--bg); color:var(--text); }
+.nav-search input::placeholder { color:var(--muted); }
+.nav-search input:focus { border-color:var(--link); box-shadow:0 0 0 2px rgba(212,255,0,0.15); }
 
 /* Container */
 .container { max-width:1200px; margin:0 auto; padding:24px 20px; }
@@ -84,15 +85,15 @@ body { font-family:'Inter',system-ui,sans-serif; background:var(--bg); color:var
 
 /* Stats grid */
 .stats-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:12px; margin-bottom:32px; }
-.stat-card { background:var(--panel); border:1px solid var(--border); border-radius:12px; padding:18px 20px; transition:box-shadow .2s; }
-.stat-card:hover { box-shadow:0 2px 8px rgba(0,0,0,0.04); }
-.stat-card .icon { width:36px; height:36px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:18px; margin-bottom:10px; }
+.stat-card { background:var(--panel); border:1px solid var(--border); border-radius:12px; padding:18px 20px; transition:box-shadow .2s, border-color .2s; }
+.stat-card:hover { box-shadow:0 2px 12px rgba(212,255,0,0.06); border-color:#3a3b40; }
+.stat-card .icon { width:36px; height:36px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:18px; margin-bottom:10px; background:var(--blue-bg); }
 .stat-card .icon.blue { background:var(--blue-bg); }
 .stat-card .icon.green { background:var(--green-bg); }
-.stat-card .icon.orange { background:#fff4e6; }
-.stat-card .icon.purple { background:#f0eeff; }
+.stat-card .icon.orange { background:rgba(255,207,110,0.1); }
+.stat-card .icon.purple { background:rgba(201,184,255,0.1); }
 .stat-card .label { font-size:11px; color:var(--muted); text-transform:uppercase; letter-spacing:.6px; font-weight:600; }
-.stat-card .value { font-size:22px; font-weight:700; margin-top:4px; font-family:'JetBrains Mono',monospace; }
+.stat-card .value { font-size:22px; font-weight:700; margin-top:4px; font-family:'JetBrains Mono',monospace; color:var(--text); }
 .stat-card .value.green { color:var(--green); }
 .stat-card .value.red { color:var(--red); }
 .stat-card .sub { font-size:11px; color:var(--muted); margin-top:3px; }
@@ -110,10 +111,10 @@ body { font-family:'Inter',system-ui,sans-serif; background:var(--bg); color:var
 
 /* Table */
 table { width:100%; border-collapse:collapse; }
-th { text-align:left; padding:10px 16px; font-size:11px; text-transform:uppercase; color:var(--muted); border-bottom:1px solid var(--border-light); background:#fafafa; font-weight:600; letter-spacing:.4px; white-space:nowrap; }
-td { padding:10px 16px; border-bottom:1px solid var(--border-light); font-size:13px; white-space:nowrap; }
+th { text-align:left; padding:10px 16px; font-size:11px; text-transform:uppercase; color:var(--muted); border-bottom:1px solid var(--border-light); background:var(--border-light); font-weight:600; letter-spacing:.4px; white-space:nowrap; }
+td { padding:10px 16px; border-bottom:1px solid var(--border-light); font-size:13px; white-space:nowrap; color:var(--text); }
 tr:last-child td { border-bottom:none; }
-tr:hover td { background:#fafbfc; }
+tr:hover td { background:rgba(212,255,0,0.03); }
 .mono { font-family:'JetBrains Mono',Monaco,Consolas,monospace; font-size:12px; }
 
 /* Badges */
@@ -121,7 +122,7 @@ tr:hover td { background:#fafbfc; }
 .badge-ok { background:var(--green-bg); color:var(--green); }
 .badge-err { background:var(--red-bg); color:var(--red); }
 .badge-type { background:var(--blue-bg); color:var(--blue); }
-.badge-coin { background:#fff4e6; color:#e8890f; }
+.badge-coin { background:rgba(255,207,110,0.1); color:var(--orange); }
 
 /* Two column layout */
 .two-col { display:grid; grid-template-columns:1.4fr 1fr; gap:16px; }
@@ -138,7 +139,7 @@ tr:hover td { background:#fafbfc; }
 .gas-bar .fill.fast { background:var(--red); width:100%; }
 
 /* Spinner */
-.spinner { display:inline-block; width:14px; height:14px; border:2px solid var(--border); border-top-color:var(--link); border-radius:50%; animation:spin .8s linear infinite; }
+.spinner { display:inline-block; width:14px; height:14px; border:2px solid var(--border); border-top-color:var(--hero); border-radius:50%; animation:spin .8s linear infinite; }
 @keyframes spin { to{transform:rotate(360deg)} }
 
 /* Responsive */
@@ -154,7 +155,7 @@ tr:hover td { background:#fafbfc; }
 <div class="navbar">
   <div class="nav-inner">
     <a href="/" class="nav-logo">
-      <span class="dot">🦝</span>
+      <span class="dot">🪶</span>
       <span>RobinhoodScan</span>
       <span class="chain-name">| Robinhood Chain</span>
     </a>
