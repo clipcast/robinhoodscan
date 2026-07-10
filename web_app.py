@@ -375,6 +375,13 @@ def stats_page():
     return PAGE
 
 
+@app.route("/txs")
+@app.route("/blocks")
+@app.route("/tokens")
+def other_pages():
+    return PAGE
+
+
 @app.route("/api/stats")
 def api_stats():
     data = client.get_stats()
