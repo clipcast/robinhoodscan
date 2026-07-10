@@ -6,8 +6,8 @@
 # Blockscout API endpoint
 api:
   base_url: https://robinhoodchain.blockscout.com
-  # API key (if you have one — Blockscout is open, but rate limits apply)
-  api_key: "proapi_bSfD5L1WCvobulkqOHsRehjHZwEJ5QRbh2tEgIAl5WFOFwEnP0ZjjNftJURaTQbdg_l6cgL"
+  # API key (set via BLOCKSCOUT_API_KEY environment variable, do not hardcode here)
+  api_key: ""
   # Request timeout (seconds)
   timeout: 15
   # Rate limit delay between requests (seconds)
