@@ -1,10 +1,4 @@
 {
   "version": 2,
-  "cleanUrls": true,
-  "rewrites": [
-    { "source": "/stats", "destination": "/index.html" },
-    { "source": "/txs", "destination": "/index.html" },
-    { "source": "/blocks", "destination": "/index.html" },
-    { "source": "/tokens", "destination": "/index.html" }
-  ]
+  "cleanUrls": true
 }
